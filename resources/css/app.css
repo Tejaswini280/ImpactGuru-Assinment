@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dashboard scoped polish - only applies inside .dashboard-page */
+.dashboard-page {
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+}
+
+.dashboard-page .dashboard-card {
+	border-radius: 0.8rem;
+	overflow: visible;
+	border: 1px solid rgba(15, 23, 42, 0.03);
+}
+
+.dashboard-page .dashboard-card .card-body {
+	padding: 1.25rem 1.5rem;
+}
+
+.stat-icon {
+	width: 64px;
+	height: 64px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.75rem;
+	font-size: 1.5rem;
+	box-shadow: 0 6px 18px rgba(14,20,30,0.04);
+}
+
+.stat-primary { background: linear-gradient(135deg, rgba(59,130,246,0.09), rgba(59,130,246,0.06)); color: #1e3a8a; }
+.stat-success { background: linear-gradient(135deg, rgba(16,185,129,0.07), rgba(16,185,129,0.04)); color: #065f46; }
+.stat-warning { background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(245,158,11,0.03)); color: #92400e; }
+.stat-info { background: linear-gradient(135deg, rgba(6,182,212,0.06), rgba(6,182,212,0.03)); color: #085f66; }
+
+.dashboard-page .stat-value { font-size: 1.35rem; font-weight: 700; }
+
+/* subtle hover lift for dashboard cards only */
+.dashboard-page .dashboard-card {
+	transition: transform .18s ease, box-shadow .18s ease;
+}
+.dashboard-page .dashboard-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 18px 40px rgba(14,20,30,0.06);
+}
+
+/* Recent customers — cleaner header and avatars */
+.dashboard-page .recent-card .card-header {
+	background: #fff;
+	border-bottom: 1px solid rgba(15,23,42,0.04);
+	font-weight:600;
+}
+.dashboard-page .recent-card .table td, .dashboard-page .recent-card .table th { vertical-align: middle; }
+.dashboard-page .avatar-sm { width:36px; height:36px; object-fit:cover; border-radius:50%; }
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+	.stat-icon { width:56px; height:56px; font-size:1.25rem; }
+	.dashboard-page .dashboard-card:hover { transform:none; box-shadow:none; }
+}
+
+
+
+.dashboard-stats .card .card-body {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.stat-icon {
+	width: 56px;
+	height: 56px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	border-radius: .75rem;
+	font-size: 1.25rem;
+}
+
+.recent-customers .table td, .recent-customers .table th {
+	vertical-align: middle;
+}
+
+.avatar-sm {
+	width: 36px;
+	height: 36px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+/* Small screens adjustments */
+@media (max-width: 575.98px) {
+	.dashboard-stats .card .card-body { flex-direction: column; align-items:flex-start; }
+	.stat-icon { width:48px; height:48px; }
+	.recent-customers .btn { padding:.375rem .5rem; font-size:.8rem }
+	.table-responsive { font-size: .95rem; }
+}
+
+/* Make dashboard headings slightly larger */
+.page-title { font-size: 1.25rem; font-weight:600; }
+
+/* Professional card polish */
+.card.border-0.shadow-sm {
+	transition: transform .18s ease, box-shadow .18s ease;
+}
+.card.border-0.shadow-sm:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 10px 30px rgba(14, 20, 30, 0.08);
+}
+
+.stat-icon { box-shadow: inset 0 -6px 18px rgba(0,0,0,0.03); }
+.stat-value { font-weight:700; font-size:1.35rem; }
+
+/* Recent customers table polish */
+.recent-customers .table thead th { border-bottom: 2px solid rgba(0,0,0,0.06); }
+.recent-customers .table tbody tr { transition: background .12s ease; }
+.recent-customers .table tbody tr:hover { background: rgba(0,0,0,0.02); }
+
+.customer-name { display:flex; align-items:center; gap:.75rem; }
+.customer-initial {
+	width:40px; height:40px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:600; color:#fff;
+}
+
+/* Color palette for initials (deterministic via nth-child is not reliable server-side, keep simple) */
+.customer-initial.bg-blue { background:#3b82f6; }
+.customer-initial.bg-green { background:#10b981; }
+.customer-initial.bg-yellow { background:#f59e0b; }
+.customer-initial.bg-pink { background:#ec4899; }
+
+/* Responsive table: hide email and phone on xs */
+@media (max-width: 575.98px) {
+	.col-email, .col-phone { display: none !important; }
+}
+
+
